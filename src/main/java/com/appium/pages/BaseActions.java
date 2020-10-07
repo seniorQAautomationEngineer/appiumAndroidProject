@@ -115,6 +115,14 @@ public class BaseActions {
                 .release()
                 .perform();
     }
+    public void dragAndDrop(WebElement firstElement, WebElement secondElement) {
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction
+                .longPress(element(firstElement))
+                .moveTo(element(secondElement))
+                .release()
+                .perform();
+    }
 
     public void scrollTo(String text){
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+text+"\").instance(0))");
